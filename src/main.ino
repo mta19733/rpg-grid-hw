@@ -13,7 +13,6 @@
 // https://www.uuidgenerator.net/
 
 #define SERVICE_UUID    "d2007d50-6730-41c0-a871-06695ae08a55"
-#define READ_CHAR_UUID  "2be82d7d-6dd9-40ee-8ee9-af581af0fc92" // todo not used
 #define WRITE_CHAR_UUID "2be82d7d-6dd9-40ee-8ee9-af581af0fc92"
 
 class ReadCallbacks: public BLECharacteristicCallbacks {
@@ -37,14 +36,6 @@ void setup() {
   BLEServer *pServer = BLEDevice::createServer();
   BLEService *pService = pServer->createService(SERVICE_UUID);
   
-  BLECharacteristic *readChar = pService->createCharacteristic(
-    READ_CHAR_UUID,
-    BLECharacteristic::PROPERTY_READ |
-    BLECharacteristic::PROPERTY_WRITE
-  );
-
-  readChar->setValue("Hi there");
-
   BLECharacteristic *writeChar = pService->createCharacteristic(
     WRITE_CHAR_UUID,
     BLECharacteristic::PROPERTY_READ |
