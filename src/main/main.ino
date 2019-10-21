@@ -8,25 +8,13 @@
 #include <BLEDevice.h>
 #include <BLEUtils.h>
 #include <BLEServer.h>
+#include "ReadCallbacks.cpp"
 
 // See the following for generating UUIDs:
 // https://www.uuidgenerator.net/
 
 #define SERVICE_UUID    "d2007d50-6730-41c0-a871-06695ae08a55"
 #define WRITE_CHAR_UUID "2be82d7d-6dd9-40ee-8ee9-af581af0fc92"
-
-class ReadCallbacks: public BLECharacteristicCallbacks {
-    void onWrite(BLECharacteristic *pCharacteristic) {
-      std::string value = pCharacteristic->getValue();
-      if (value.length() > 0) {
-        Serial.print("New value: ");
-        for (int i = 0; i < value.length(); i++)
-          Serial.print(value[i]);
-
-        Serial.println();
-      }
-    }
-};
 
 void setup() {
   Serial.begin(115200);
