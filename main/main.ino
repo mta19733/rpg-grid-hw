@@ -10,9 +10,15 @@
 #define SERVICE_NAME           "RPG Grid"
 #define SERVICE_RESPONSE_VALUE "RPG Grid test response"
 
-#define DATA_DELIMITER ":"
-#define DATA_PIN_CODE  "6969"
+#define DATA_DELIMITER     ","
+#define DATA_PIN_DELIMITER ":"
+#define DATA_PIN           "6969"
 
+#define MAX_TILES 8 * 8
+
+/**
+ * Setup BLE service.
+ */
 BLEService* createBluetoothService() {
   BLEDevice::init(SERVICE_NAME);
   BLEServer* server = BLEDevice::createServer();
@@ -20,6 +26,9 @@ BLEService* createBluetoothService() {
   return server->createService(UUID_SERVICE);
 }
 
+/**
+ * Listen for incoming write messages (id parsing).
+ */
 void setupWriteCharacteristic(BLEService* service) {
   BLECharacteristic* writes = service->createCharacteristic(
     UUID_WRITE_CHARACTERISTIC,
@@ -28,14 +37,19 @@ void setupWriteCharacteristic(BLEService* service) {
 
   writes->setCallbacks(
     new MessageHandler(
-      DATA_DELIMITER, 
-      DATA_PIN_CODE
+      MAX_TILES,
+      DATA_DELIMITER,
+      DATA_PIN_DELIMITER,
+      DATA_PIN
     )
   );
 
   writes->setValue(SERVICE_RESPONSE_VALUE);
 }
 
+/**
+ * Advertise BLE so that other devices could pick up ESP.
+ */
 void startAdvertising() {
   BLEAdvertising* advertising = BLEDevice::getAdvertising();
 
