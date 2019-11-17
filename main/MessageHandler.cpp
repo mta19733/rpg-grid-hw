@@ -2,18 +2,19 @@
 
 #include "MessageHandler.h"
 
+// Handles BLE messages and parses their contents.
 MessageHandler::MessageHandler(
-  int maxTileIds,
   std::string dataDelimiter,
   std::string pinDelimiter,
-  std::string pin
-) : maxTileIds(maxTileIds),
-  dataDelimiter(dataDelimiter),
+  std::string pin,
+  TileWriter& writer
+) : dataDelimiter(dataDelimiter),
   pinDelimiter(pinDelimiter),
   pin(pin),
-  tileIds(maxTileIds) { };
+  writer(writer),
+  tileIds(writer.size()) { };
 
-void MessageHandler::onWrite(BLECharacteristic *characteristic) {
+void MessageHandler::onWrite(BLECharacteristic* characteristic) {
   std::string value = characteristic->getValue();
 
   if (!this->isPinValid(value)) {
@@ -24,7 +25,7 @@ void MessageHandler::onWrite(BLECharacteristic *characteristic) {
   parseTileIds(value);
   printTileIds();
 
-  // TODO, send signals to Serial ports by using tileIds.
+  this->writer.setIds(tileIds);
 }
 
 bool MessageHandler::isPinValid(std::string pin) {
@@ -49,7 +50,7 @@ void MessageHandler::parseTileIds(std::string value) {
 
   // Size restriction is added in-case of malformed message - it might 
   // crash due to OOM.
-  while (tok != NULL && this->tileIds.size() < this->maxTileIds) {
+  while (tok != NULL && this->tileIds.size() < this->writer.size()) {
     this->tileIds.push_back(atoi(tok));
 
     tok = strtok(NULL, this->dataDelimiter.c_str());
