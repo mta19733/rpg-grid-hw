@@ -4,7 +4,7 @@ TileWriter::TileWriter(
   unsigned long transitionDurationMillis,
   int highPower,
   int lowPower
-) : transitionDurationMillis(transitionDurationMillis), 
+) : transitionDurationMillis(transitionDurationMillis),
   highPower(highPower),
   lowPower(lowPower) { }
 
@@ -35,7 +35,7 @@ void TileWriter::setIds(std::vector<byte> ids) {
 }
 
 void TileWriter::update() {
-  if (millis() < trasitionEndMillis) {
+  if (transitionEndMillis < millis()) {
     Serial.println("Transition ended");
     // TODO implement transition handling.
   }

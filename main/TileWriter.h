@@ -8,8 +8,8 @@ class TileWriter {
 
   public:
     TileWriter(
-      unsigned long transitionDurationMillis, 
-      int highPower, 
+      unsigned long transitionDurationMillis,
+      int highPower,
       int lowPower
     );
 
@@ -39,7 +39,7 @@ class TileWriter {
     const unsigned long transitionDurationMillis;
 
     // When does the current transition end.
-    unsigned long trasitionEndMillis = 0;
+    unsigned long transitionEndMillis = 0;
 
     // Analog power which is used when enabling tiles.
     const int highPower;
