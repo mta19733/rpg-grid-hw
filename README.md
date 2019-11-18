@@ -11,14 +11,17 @@ If you've chosen to use [CLion], before opening the project run:
 pio init --ide clion --board esp32doit-devkit-v1
 ```
 
-To upload your code and run the serial monitory:
+Then just upload your code and run the serial monitor:
 ```bash
 pio run
 ```
 
-If upload gets stuck at `Connecting...`, first make sure that serial monitor is
-closed. If that doesn't help, you might have multiple USB devices. To
-workaround this, list all serial ports:
+## Common issues
+If `pio run` gets stuck at `Connecting...` make sure that serial monitor is
+closed as only one instance can be running.
+
+If that doesn't help, you might have multiple USB devices connected to your PC.
+To workaround this, first list all serial ports:
 ```bash
 pio device list
 ```
