@@ -5,7 +5,7 @@ Code for controlling RPG Grid [ESP32] hardware via Bluetooth [RPG Grid] app.
 * Install [PlatformIO CLI].
 * Preferably install an IDE, [CLion] is a good choice.
 
-## Development
+## Running
 If you've chosen to use [CLion], before opening the project run:
 ```bash
 pio init --ide clion --board esp32doit-devkit-v1
@@ -16,7 +16,7 @@ Then just upload your code and run the serial monitor:
 pio run
 ```
 
-## Common issues
+## Gotchas
 If `pio run` gets stuck at `Connecting...` make sure that serial monitor is
 closed as only one instance can be running.
 
