@@ -61,7 +61,7 @@ private:
     /**
      * Current state of the entire gird.
      */
-    State state = State::PULSE;
+    State state = State::PENDING;
 
     /**
      * When current transition should end.
