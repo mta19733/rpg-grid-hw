@@ -29,7 +29,7 @@ pio device list
 Grab the one which is your [ESP32] device and run the following (replace `PORT`
 with your device port):
 ```bash
-pio run --upload-port <YOUR_PORT>
+pio run --upload-port PORT
 ```
 
 [PlatformIO CLI]: https://platformio.org/install/cli
