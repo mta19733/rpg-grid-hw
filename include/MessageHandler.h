@@ -1,9 +1,8 @@
 #ifndef MESSAGE_HANDLER_H
 #define MESSAGE_HANDLER_H
 
+#include <TileWriter.h>
 #include <BLEDevice.h>
-
-#include "TileWriter.h"
 
 class MessageHandler : public BLECharacteristicCallbacks {
 

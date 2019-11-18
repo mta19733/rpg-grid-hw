@@ -1,10 +1,7 @@
 #include <SparkFunSX1509.h>
+#include <MessageHandler.h>
 #include <BLEDevice.h>
 #include <BLEServer.h>
-
-#include "Constants.h"
-#include "TileWriter.h"
-#include "MessageHandler.h"
 
 TileWriter *tileWriter = nullptr;
 
@@ -18,7 +15,7 @@ TileWriter *createTileWriter() {
         auto writer = new TileWriter();
 
         writer->addCounterTiles(io, {4});
-        writer->addTiles(io, {0, 1, 2, 3});
+        writer->addPatternTiles(io, {0, 1, 2, 3});
 
         return writer;
     }

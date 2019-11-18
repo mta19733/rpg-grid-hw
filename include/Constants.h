@@ -49,13 +49,28 @@ unsigned long getTransitionDurationMillis();
 unsigned long getPulsateDurationMillis();
 
 /**
- * @return analog power used when enabling tiles.
+ * @return pin mode to be used for output.
  */
-int getAnalogHighPower();
+int getOutputPinMode();
 
 /**
- * @return analog power used when disabling tiles.
+ * @return pin mode to be used for input.
  */
-int getAnalogLowPower();
+int getInputPinMode();
+
+/**
+ * @return power used when pulsing enabled tiles.
+ */
+int getHighPulsePower();
+
+/**
+ * @return power used when enabling tiles.
+ */
+int getHighPower();
+
+/**
+ * @return power used when disabling tiles.
+ */
+int getLowPower();
 
 #endif

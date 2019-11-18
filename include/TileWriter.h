@@ -2,6 +2,7 @@
 #define TILE_WRITER_H
 
 #include <SparkFunSX1509.h>
+#include <Constants.h>
 
 class TileWriter {
 
@@ -19,14 +20,14 @@ private:
         WHITEOUT,
 
         /**
-         * Enable current tiles.
+         * Enable current pattern tiles.
          */
-        ENABLE,
+        PATTERN,
 
         /**
-         * Do nothing.
+         * Pulse currently enabled tiles.
          */
-        IDLE
+        PULSE
     };
 
     struct Tile {
@@ -60,7 +61,7 @@ private:
     /**
      * Current state of the entire gird.
      */
-    State state = State::IDLE;
+    State state = State::PULSE;
 
     /**
      * When current transition should end.
@@ -71,6 +72,11 @@ private:
      * When pulsing should end.
      */
     unsigned long pulsateEndMillis = 0;
+
+    /**
+     * Should the grid pulsate.
+     */
+    bool pulsate = false;
 
 public:
 
@@ -87,7 +93,7 @@ public:
     /**
      * Add a set of regular tiles.
      */
-    void addTiles(SX1509 *io, const std::vector<byte> &pins);
+    void addPatternTiles(SX1509 *io, const std::vector<byte> &pins);
 
     /**
      * Execute one update tick.
@@ -107,19 +113,19 @@ private:
     void nextState();
 
     /**
-     * Pulsate currently enabled tiles.
-     */
-    void pulsate(const std::vector<Tile> &tiles, int power);
-
-    /**
      * @return returns a friendly description of given state.
      */
     static std::string getDescription(State state);
 
     /**
-     * Write given tiles.
+     * Set pin mode of given tiles.
      */
-    static void write(const std::vector<Tile> &tiles, int power);
+    static void setPinMode(const std::vector<Tile> &tiles, int mode);
+
+    /**
+     * Send power to given tiles.
+     */
+    static void writeTiles(const std::vector<Tile> &tiles, int power);
 };
 
 #endif

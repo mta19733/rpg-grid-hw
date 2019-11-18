@@ -1,4 +1,6 @@
+#include <SparkFunSX1509.h>
 #include <Constants.h>
+#include <Arduino.h>
 
 std::string getServiceResponse() {
     return "RPG Grid v1 test response";
@@ -36,10 +38,22 @@ unsigned long getPulsateDurationMillis() {
     return 1000;
 }
 
-int getAnalogHighPower() {
+int getOutputPinMode() {
+    return ANALOG_OUTPUT;
+}
+
+int getInputPinMode() {
+    return INPUT;
+}
+
+int getHighPulsePower() {
+    return getHighPower() / 2;
+}
+
+int getHighPower() {
     return 150;
 }
 
-int getAnalogLowPower() {
+int getLowPower() {
     return 0;
 }

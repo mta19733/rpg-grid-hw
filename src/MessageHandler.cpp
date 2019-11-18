@@ -1,8 +1,7 @@
+#include <MessageHandler.h>
+#include <Constants.h>
 #include <Arduino.h>
 #include <sstream>
-
-#include "MessageHandler.h"
-#include "Constants.h"
 
 /**
  * @return returns <code>true</code> if given pin is valid or
