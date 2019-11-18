@@ -1,4 +1,6 @@
+/cmake-build-esp32doit-devkit-v1
 /.idea
+/.pio
 
-.DS_Store
-*.iml
+/CMakeListsPrivate.txt
+/CMakeLists.txt
