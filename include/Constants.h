@@ -1,8 +1,6 @@
 #ifndef RPG_GRID_HW_CONSTANTS_H
 #define RPG_GRID_HW_CONSTANTS_H
 
-#include <string>
-
 /**
  * @return BLE response text.
  */
