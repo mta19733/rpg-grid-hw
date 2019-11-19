@@ -47,7 +47,7 @@ int getInputPinMode() {
 }
 
 int getHighPulsePower() {
-    return getHighPower() / 2;
+    return getHighPower() / 3;
 }
 
 int getHighPower() {
