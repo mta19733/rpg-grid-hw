@@ -1,4 +1,4 @@
-# RPG Grid Arduino
+# RPG Grid
 Code for controlling RPG Grid [ESP32] hardware via Bluetooth [RPG Grid] app.
 
 ## Prerequisites
