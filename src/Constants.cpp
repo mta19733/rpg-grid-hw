@@ -46,6 +46,10 @@ int getInputPinMode() {
     return INPUT;
 }
 
+int getWhiteoutHighPower() {
+    return 180;
+}
+
 int getHighPulsePower() {
     return getHighPower() / 3;
 }

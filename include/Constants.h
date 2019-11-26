@@ -57,6 +57,11 @@ int getOutputPinMode();
 int getInputPinMode();
 
 /**
+ * @return power used when whitening out the tiles.
+ */
+int getWhiteoutHighPower();
+
+/**
  * @return power used when pulsing enabled tiles.
  */
 int getHighPulsePower();

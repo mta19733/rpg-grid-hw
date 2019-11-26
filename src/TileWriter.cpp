@@ -57,7 +57,7 @@ void TileWriter::update() {
 
         case State::WHITEOUT:
             writeTiles(this->patternTiles, getLowPower());
-            writeTiles(this->counterTiles, getHighPower());
+            writeTiles(this->counterTiles, getWhiteoutHighPower());
             break;
 
         case State::PATTERN:
