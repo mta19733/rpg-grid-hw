@@ -31,7 +31,7 @@ std::string getDataPin() {
 }
 
 unsigned long getTransitionDurationMillis() {
-    return 5000;
+    return 10000;
 }
 
 unsigned long getPulsateDurationMillis() {
@@ -47,15 +47,15 @@ int getInputPinMode() {
 }
 
 int getWhiteoutHighPower() {
-    return 180;
+    return 120;
 }
 
 int getHighPulsePower() {
-    return getHighPower() / 3;
+    return 60;
 }
 
 int getHighPower() {
-    return 150;
+    return 120;
 }
 
 int getLowPower() {
