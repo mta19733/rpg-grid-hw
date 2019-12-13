@@ -33,6 +33,6 @@ pio run --upload-port PORT
 ```
 
 [PlatformIO CLI]: https://platformio.org/install/cli
-[RPG Grid]: https://github.com/Edvinas01/rpg-grid
+[RPG Grid]: https://github.com/mta19733/rpg-grid
 [ESP32]: https://www.espressif.com/en/products/hardware/esp32/overview
 [CLion]: https://www.jetbrains.com/clion
